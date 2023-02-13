@@ -1,0 +1,48 @@
+{
+    "entree":[
+        {"id":1, "name":"pot de tapenade maison à partager", "price": 5.5 },
+        {"id":2, "name":"pâté au cèpes", "price": 7 },
+        {"id":3, "name":"6 huitres fine de claire n°3", "price": 14 },
+        {"id":4, "name":"moules gratinées en persillade", "price": 9 },
+        {"id":5, "name":"jambon ibérique de Cebo Cambo", "price": 13 },
+        {"id":6, "name":"fromage de tête", "price": 5 }
+    ],
+    "viande":[
+        {"id":1, "name":"Steack tartare race Aubrac", "price": 17 },
+        {"id":2, "name":"tournedos aux Morilles ou Rossini", "price": 33 },
+        {"id":3, "name":"Filets de boeuf, sauce Roquefort", "price": 29 },
+        {"id":4, "name":"Tête de veau sauce gribiche", "price": 14 },
+        {"id":5, "name":"Foie de veau en persillade", "price": 22 },
+        {"id":6, "name":"Andouillete sauce moutarde a l'ancienne", "price": 15 }
+    ],
+    "poisson":[
+        {"id":1, "name":"Brandade de morue", "price": 16 },
+        {"id":2, "name":"pavé de morue sauce aïoli", "price": 17},
+        {"id":3, "name":"Gambas poêlées au piment d'Espelette", "price": 17}        
+    ],
+    "dessert":[
+        {"id":1, "name":"Vacherin aux marrons ", "price": 6},
+        {"id":2, "name":"Nougat glacé au coulis de framboise", "price": 6 },
+        {"id":3, "name":"crêpes au coulis d'agrumes", "price": 9 },
+        {"id":4, "name":"Crèmes brulée à la vanille", "price": 7 },
+        {"id":5, "name": "Profiteroles au chocolat chaud", "price": 8 },
+        {"id":6, "name":"Colonel", "price": 8.5 }
+    ],
+    "aperitif":[
+        {"id":1, "name":"Kir royal", "price": 8},
+        {"id":2, "name":"kir", "price": 4 },
+        {"id":3, "name":"Whisky", "price": 9 },
+        {"id":4, "name":"Pression", "price": 3.4 },
+        {"id":5, "name": "Ricard", "price": 3 },
+        {"id":6, "name":"Martini", "price": 3.4 }
+    ],
+    "digestif":[
+        {"id":1, "name":"Armagnac","price": 7},
+        {"id":2, "name":"Cognac", "price": 7 },
+        {"id":3, "name":"Calvados", "price": 7 },
+        {"id":4, "name":"Poire Williams", "price": 9 },
+        {"id":5, "name": "Bailleys", "price": 7 },
+        {"id":6, "name":"Get 27, 31", "price": 6 }
+    ]   
+}
+
