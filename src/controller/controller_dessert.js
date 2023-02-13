@@ -1,8 +1,10 @@
 const fs = require("fs");
+const cheminData = './src/model/data.json';    
+
 
 exports.createData = (request, response) => {
   // Utiliser la méthode readfile du module fs pour lire le data.json
-  fs.readFile("model/data.json", (err, data) => {
+  fs.readFile(cheminData, (err, data) => {
     // condition si l'erreur n'est pas null
     if (err) {
       // Renvoyer l'erreur status 500 et le message
@@ -12,28 +14,26 @@ exports.createData = (request, response) => {
       });
     } else {
       //on récupère les données,et le transforme en objet json et ont les assignent dans une constante
-      const existing_data = JSON.parse(data);
+      const existingData = JSON.parse(data);
       //si le tableau dessert est vide
-      if (existing_data.dessert.length === 0) {
+      if (existinData.dessert.length === 0) {
         //on ajoute un objet avec un id et un name
-        existing_data.dessert.push({
+        existingData.dessert.push({
           id: 1,
           name: request.body.name,
         });
         //sinon
       } else {
         //on récupère le dernier objet du tableau  et on l'assigne dans une constante
-        const dataById = existing_data.dessert.findLast((obj) => obj.id);
+        const dataById = existingData.dessert.findLast((obj) => obj.id);
         //on ajoute dans le tableau un nouvel objet avec un id + 1 par rapport au dernier objet
-        existing_data.dessert.push({
+        existingData.dessert.push({
           id: dataById.id + 1,
           name: request.body.name,
         });
         //on réécrit la donnée dans le fichier data.json avec existing_data qui contient la nouvelle requète en plus
       }
-      fs.writeFile(
-        "model/data.json",
-        JSON.stringify(existing_data),
+      fs.writeFile(cheminData,JSON.stringify(existing_data),
         (writeErr) => {
           // condition si l'erreur n'est pas null
           if (writeErr) {
@@ -56,7 +56,7 @@ exports.createData = (request, response) => {
 
 exports.getAllData = (request, response) => {
   // Lecture du fichier data.json
-  fs.readFile("model/data.json", (err, data) => {
+  fs.readFile(cheminData, (err, data) => {
     // condition si l'erreur n'est pas null
     if (err) {
       // Renvoyer l'erreur 500 avec un message
@@ -77,7 +77,7 @@ exports.getAllData = (request, response) => {
 
 exports.getDataById = (request, response) => {
   // Lecture du fichier data.json
-  fs.readFile("model/data.json", (err, data) => {
+  fs.readFile(cheminData, (err, data) => {
     // condition si l'erreur n'est pas null
     if (err) {
       // Renvoyer l'erreur 500 avec un message
@@ -108,7 +108,7 @@ exports.getDataById = (request, response) => {
 
 exports.getDataByName = (request, response) => {
   // Lecture du fichier data.json
-  fs.readFile("model/data.json", (err, data) => {
+  fs.readFile(cheminData, (err, data) => {
     // condition si l'erreur n'est pas null
     if (err) {
       // Renvoyer l'erreur 500 avec un message
@@ -121,7 +121,7 @@ exports.getDataByName = (request, response) => {
       const dataName = JSON.parse(data);
       // ont assignent une constante l'objet du tableau possèdant un name égal au name de la requète
       const dataByName = dataName.dessert.find(
-        (obj) => obj.name === request.params.name
+        (obj) => obj.name.toLowerCase() === request.params.name.toLowerCase()
       );
       //si on ne trouve pas d'objet avec ce name
       if (!dataByName) {
@@ -140,7 +140,7 @@ exports.getDataByName = (request, response) => {
 
 exports.updateData = (request, response) => {
   //on lit le fichier data.json
-  fs.readFile("model/data.json", (err, data) => {
+  fs.readFile(cheminData, (err, data) => {
     // condition si l'erreur n'est pas null
     if (err) {
       // Renvoyer l'erreur 500 avec un message
@@ -165,9 +165,7 @@ exports.updateData = (request, response) => {
         //on change le name de l'objet et on lui assigne le name de la requète du body
         dataById.name = request.body.name;
         //on écrit les données modifier dans data.json
-        fs.writeFile(
-          "model/data.json",
-          JSON.stringify(existingData),
+        fs.writeFile(cheminData, JSON.stringify(existingData),
           (writeErr) => {
             // condition si l'erreur n'est pas null
             if (writeErr) {
@@ -191,7 +189,7 @@ exports.updateData = (request, response) => {
 
 exports.deleteData = (request, response) => {
   //lecture de  data.json
-  fs.readFile("model/data.json", (err, data) => {
+  fs.readFile(cheminData, (err, data) => {
     // condition si l'erreur n'est pas null
     if (err) {
       // Renvoyer l'erreur 500 avec un message
@@ -203,7 +201,7 @@ exports.deleteData = (request, response) => {
       //on stock les données dans une constante et on les transforme en objet
       const existing_data = JSON.parse(data);
       //on stock l'objet dont l'id = l'id de la requète
-      const dataById = existing_data.dessert.find(
+      const dataById = existingData.dessert.find(
         (obj) => obj.id === parseInt(request.params.id)
       );
       //si on ne trouve pas d'objet avec cet id
@@ -213,13 +211,11 @@ exports.deleteData = (request, response) => {
         });
       } else {
         //dans le tableau on va garder uniquement les objet dont l'id est différent de l'id de la requète
-        existing_data.dessert = existing_data.dessert.filter(
+        existingData.dessert = existingData.dessert.filter(
           (obj) => obj.id != parseInt(request.params.id)
         );
         //on réécrit les données dans le fichier data.json
-        fs.writeFile(
-          "model/data.json",
-          JSON.stringify(existing_data),
+        fs.writeFile(cheminData, JSON.stringify(existing_data),
           (writeErr) => {
             //si il y a une erreur d'écriture
             if (writeErr) {

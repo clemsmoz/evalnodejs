@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const digestifController = require("../controller/digestifController");
+const digestifController = require("../controller/controller_digestif");
 
 //définition  de le route permettant d'accéder au contenu du tableau digestif, dans le fichier data.json
 //GET : "/digestif"

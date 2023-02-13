@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const dessertController = require("../controller/dessertController");
+const dessertController = require("../controller/controller_dessert");
+
 
 //définition  de le route permettant d'accéder au contenu du tableau dessert, dans le fichier data.json
 //GET : "/dessert"

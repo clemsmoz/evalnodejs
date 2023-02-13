@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const poissonController = require("../controller/poissonController");
+const poissonController = require("../controller/controller_poissons");
 
 //définition  de le route permettant d'accéder au contenu du tableau poisson, dans le fichier data.json
-//GET : "/entree"
+//GET : "/poisson"
 //EX: http://localhost:3100/poisson
-router.get('/poisson', entreeController.getAllData)
+router.get('/poisson', poissonController.getAllData)
 
 //définition de la route permettant d'accéder aux données du tableau poisson avec son id
 //GET: "/poisson/:id"
@@ -20,7 +20,7 @@ router.get("/poisson/search/:name", poissonController.getDataByName)
 //d&finition de la route permettant d'ajouter une donnée au tableau poisson
 //POST : "/poisson"
 //EX : "http://localhost:3100/poisson"
-router.post("/poisson", entreeController.createData)
+router.post("/poisson", poissonController.createData)
 
 //définition de la route permettant de mettre à jour les données du tableau poisson avec son id
 // PUT: "/poisson/:id"

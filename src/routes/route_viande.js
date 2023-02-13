@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const viandeController = require("../controller/viandeController");
+const viandeController = require("../controller/controller_viande");
 
 //définition  de le route permettant d'accéder au contenu du tableau viande, dans le fichier data.json
-//GET : "/entree"
+//GET : "/viande"
 //EX: http://localhost:3100/viande
 router.get('/viande', viandeController.getAllData)
 

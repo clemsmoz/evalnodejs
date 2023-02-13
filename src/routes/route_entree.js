@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const entreeController = require("../controller/entreeController");
+const entreeController = require("../controller/controller_entree");
 
 //définition  de le route permettant d'accéder au contenu du tableau entree,dans le fichier data.json
 //GET : "/entree"
